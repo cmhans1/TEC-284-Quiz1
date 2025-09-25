@@ -14,8 +14,6 @@ bool redState = 0;
 bool greenState = 0;
 bool blueState = 0;
 
-//Current color state
-//int currentColor = 0; //0-off, 1-red, 2-green, 3-blue
 
 void setup() {
   Serial.begin(9600);
@@ -30,16 +28,18 @@ void setup() {
   pinMode(buttonPinGreen, INPUT_PULLUP);
   pinMode(buttonPinBlue, INPUT_PULLUP);
 
-  //Start with all LEDs off
-  //setColor(0);
+
 }
 
 void loop() {
   //Read button states
+  displayRGBLED();
+}
+  void displayRGBLED() {
   bool redState = digitalRead(buttonPinRed);
   bool greenState = digitalRead(buttonPinGreen);
   bool blueState = digitalRead(buttonPinBlue);
-
+  
   //Check if button 1 is pressed(Red color)
   if (redState == LOW && greenState == HIGH && blueState == HIGH) {
     digitalWrite(redPin, HIGH);
@@ -71,6 +71,7 @@ void loop() {
     digitalWrite(bluePin, LOW);
     //Serial.println("OFF");
   }
+
   if (redState == LOW && greenState == LOW && blueState == HIGH) {
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, HIGH);
@@ -88,4 +89,5 @@ void loop() {
     digitalWrite(greenPin, LOW);
     digitalWrite(bluePin, HIGH);
     }
+    
 }
