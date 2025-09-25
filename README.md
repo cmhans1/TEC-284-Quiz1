@@ -71,4 +71,21 @@ void loop() {
     digitalWrite(bluePin, LOW);
     //Serial.println("OFF");
   }
+  if (redState == LOW && greenState == LOW && blueState == HIGH) {
+    digitalWrite(redPin, HIGH);
+    digitalWrite(greenPin, HIGH);
+    digitalWrite(bluePin, LOW);
+  }
+
+    else if (redState == HIGH && greenState == LOW && blueState == LOW) {
+    digitalWrite(redPin, LOW);
+    digitalWrite(greenPin, HIGH);
+    digitalWrite(bluePin, HIGH);
+    }
+
+    else if (redState == LOW && greenState == HIGH && blueState == LOW) {
+    digitalWrite(redPin, HIGH);
+    digitalWrite(greenPin, LOW);
+    digitalWrite(bluePin, HIGH);
+    }
 }
